@@ -32,7 +32,9 @@ class GamesController < ApplicationController
   # Handle score calculation
   def calculate_score
     @score = @input_array.length
-    session[:grand_total] ? session[:grand_total] += @score : session[:grand_total] = @score
+    if letters_present? && english_word?
+      session[:grand_total] ? session[:grand_total] += @score : session[:grand_total] = @score
+    end
     @grand_total = session[:grand_total]
   end
 
