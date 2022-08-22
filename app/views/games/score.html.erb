@@ -1,4 +1,11 @@
 <div class="container">
-  <p><%= @return_message %></p>
-  <%= link_to 'New game', new_path %>
+  <div class="container-main">
+    <p><%= @return_message %></p>
+    <%= link_to 'New game', new_path, class: "new-game" %><br>
+    <%= link_to 'New game and reset', new_path(:reset => true), class: "new-game" %>
+  </div>
+  <div class="scores">
+    <%= @score %><br>
+    <%= @grand_total %>
+  </div>
 </div>

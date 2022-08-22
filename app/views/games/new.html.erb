@@ -7,15 +7,16 @@
     <% end %>
   </div>
   <div class="user-word">
-    <form class="form" action="<%= score_path %>" method="post" data-turbo="false">
+    <form id="form" action="<%= score_path %>" method="post" data-turbo="false">
       <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
       <% @letters = @letters.join %>
       <%= hidden_field_tag :grid_letters, @letters %>
       <label class="form-item" for="input_word">What is the longest word you can find?</label><br>
       <div class="inline-form form-item">
         <input class="form-input" type="text" id="input_word" name="input_word"><br>
-        <input type="submit" value="Play">
+        <input id="word-submit" class="btn btn-primary" type="submit" value="Play">
       </div>
     </form>
   </div>
+  <%= link_to 'New game and reset', new_path(:reset => true), class: "new-game" %>
 </div>
